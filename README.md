@@ -85,3 +85,7 @@ As a user, I should be able to see charts visualizing event details so that I ca
 - **Given:** User is on the home screen.
 - **When:** The user clicks to see a chart of events.
 - **Then:** The app should display a chart of events, visualizing event details.
+
+### Serverless Functions
+Serverless functions will play a role in handling authorization for accessing public calendar events from the Google Calendar API in the Meet app. Users will need to have authorization to retrieve event data for rendering in the React app. The authorization is through the serverless function which the serverless fucntion will generate and provide access tokens that ensures secure access to the Google Calendar API. AWS Lambda will be used as the cloud-service provider for implementing serverless functions and making the serverless architecture cost less and more scalable.
+
