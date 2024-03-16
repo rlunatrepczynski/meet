@@ -7,3 +7,8 @@ test('renders list of events', () => {
   const AppDOM = render(<App />).container.firstChild;
   expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();
 });
+
+test('renderCitySearch', () => {
+  const AppDOM = render().container.firstChild;
+  expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
+});
