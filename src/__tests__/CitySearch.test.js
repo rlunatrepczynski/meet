@@ -59,11 +59,11 @@ describe('<CitySearch /> component', () => {
         await user.type(cityTextBox, "Berlin");
 
         // the suggestion's textContent looks like this: "Berlin"
-        const BerlinSuggestion = CitySearchComponent.queryAllByRole('listitem')[0];
+        const BerlinGermanySuggestion = CitySearchComponent.queryAllByRole('listitem')[0];
 
-        await user.click(BerlinSuggestion);
+        await user.click(BerlinGermanySuggestion);
 
-        expect(cityTextBox).toHaveValue(BerlinSuggestion.textContent);
+        expect(cityTextBox).toHaveValue(BerlinGermanySuggestion.textContent);
     });
 
     describe('<CitySearch /> integration', () => {
