@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import EventList from '../components/EventList';
 import { getEvents } from '../api';
 
-// Scope for component tests
+// Scope for unit tests 
 describe('<EventList /> component', () => {
   let EventListComponent;
   beforeEach(() => {
