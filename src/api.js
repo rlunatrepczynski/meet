@@ -23,5 +23,5 @@ export const getEvents = async () => {
 };
 
 export const getAccessToken = async () => {
-
+    const accessToken = localStorage.getItem('access_token');
 };
