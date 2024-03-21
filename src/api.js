@@ -33,6 +33,21 @@ export const getEvents = async () => {
 
     const token = await getAccessToken();
 
+    const removeQuery = () => {
+        let newurl;
+        if (window.history.pushState && window.location.pathname) {
+            newurl =
+                window.location.protocol +
+                "//" +
+                window.location.host +
+                window.location.pathname;
+            window.history.pushState("", "", newurl);
+        } else {
+            newurl = window.location.protocol + "//" + window.location.host;
+            window.history.pushState("", "", newurl);
+        }
+    };
+
     if (token) {
         removeQuery();
         const url = " https://m5iyl78agb.execute-api.us-west-2.amazonaws.com/dev/api/get-events" + "/" + token;
@@ -63,4 +78,15 @@ export const getAccessToken = async () => {
         return code && getToken(code);
     }
     return accessToken;
+};
+
+const getToken = async (code) => {
+    const encodeCode = encodeURIComponent(code);
+    const response = await fetch(
+        "https://m5iyl78agb.execute-api.us-west-2.amazonaws.com/dev/api/token" + '/' + encodeCode
+    );
+    const { access_token } = await response.json();
+    access_token && localStorage.setItem("access_token", access_token);
+
+    return access_token;
 };
