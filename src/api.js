@@ -14,12 +14,34 @@ export const extractLocations = (events) => {
     return locations;
 };
 
+const checkToken = async (accessToken) => {
+    const response = await fetch(
+        `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+    );
+    const result = await response.json();
+    return result;
+};
+
 /**
  *
  * This function will fetch the list of all events
  */
 export const getEvents = async () => {
-    return mockData;
+    if (window.location.href.startsWith('http://localhost')) {
+        return mockData;
+    }
+
+    const token = await getAccessToken();
+
+    if (token) {
+        removeQuery();
+        const url = " https://m5iyl78agb.execute-api.us-west-2.amazonaws.com/dev/api/get-events" + "/" + token;
+        const response = await fetch(url);
+        const result = await response.json();
+        if (result) {
+            return result.events;
+        } else return null;
+    }
 };
 
 export const getAccessToken = async () => {
