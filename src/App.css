@@ -5,11 +5,23 @@ body {
 }
 
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+li {
+  color: red;
+}
+
+.details-button:hover {
+  background-color: green;
 }
 
 .App-logo {
