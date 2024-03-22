@@ -25,10 +25,15 @@ const App = () => {
     fetchData();
   }, [currentCity]);
 
+  // Function to handle number of events change
+  const handleNumberOfEventsChange = (numberOfEvents) => {
+    setCurrentNOE(numberOfEvents);
+  };
+
   return (
     <div className="App">
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
-      <NumberOfEvents />
+      <NumberOfEvents setNumberOfEvents={handleNumberOfEventsChange} />
       <EventList events={events} />
     </div>
   );
