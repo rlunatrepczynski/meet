@@ -23,7 +23,7 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
-  }, [currentCity]);
+  }, [currentCity, currentNOE]);
 
   // Function to handle number of events change
   const handleNumberOfEventsChange = (numberOfEvents) => {
