@@ -1,7 +1,7 @@
 import { loadFeature, defineFeature } from 'jest-cucumber';
 import { render, within, waitFor } from '@testing-library/react';
 import App from '../App';
-import { getEvents } from '../mock-data';
+import { getEvents } from '../api';
 import userEvent from '@testing-library/user-event';
 
 
@@ -54,20 +54,46 @@ defineFeature(feature, test => {
         });
     });
 
-    test('Select a City from Suggestions', ({ given, when, then }) => {
-        given('user was typing “Berlin” in the city textbox, and the list of suggested cities is showing.', () => {
+    //Scenario 3
 
+    test('Select a City from Suggestions', ({ given, and, when, then }) => {
+        let AppComponent;
+        let AppDOM;
+        let CitySearchDOM;
+        let citySearchInput;
+        given('user was typing “Berlin” in the city textbox, and the list of suggested cities is showing.', async () => {
+            AppComponent = render(<App />);
+            const user = userEvent.setup();
+            AppDOM = AppComponent.container.firstChild;
+            CitySearchDOM = AppDOM.querySelector('#city-search');
+            citySearchInput = within(CitySearchDOM).queryByRole('textbox');
+            await user.type(citySearchInput, "Berlin");
         });
 
-        when('the user selects a city (e.g., “Berlin, Germany”) from the list.', () => {
+        let suggestionListItems;
+        and('the list of suggested cities is showing.', () => {
+            suggestionListItems = within(CitySearchDOM).queryAllByRole('listitem');
+            expect(suggestionListItems).toHaveLength(2);
+        });
 
+        when('the user selects a city (e.g., “Berlin, Germany”) from the list.', async () => {
+            const user = userEvent.setup();
+            await user.click(suggestionListItems[0]);
         });
 
         then('their city should be changed to that city (i.e., “Berlin, Germany”), and the user should receive a list of upcoming events in that city.', () => {
+            expect(citySearchInput.value).toBe('Berlin, Germany');
+        });
 
+        and('the user should receive a list of upcoming events in that city.', async () => {
+            const EventListDOM = AppDOM.querySelector('#event-list');
+            const EventListItems = within(EventListDOM).queryAllByRole('listitem');
+            const allEvents = await getEvents();
+            // filtering the list of all events down to events located in Germany
+            // citySearchInput.value should have the value "Berlin, Germany" at this point
+            const berlinEvents = allEvents.filter(event => event.location === citySearchInput.value)
+            expect(EventListItems).toHaveLength(berlinEvents.length);
         });
     });
-
-
 });
 
