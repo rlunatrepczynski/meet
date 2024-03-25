@@ -19,7 +19,7 @@ As a user, I should be able to filter events by city so that I can see only the 
 #### Scenario 2: Display List of Suggestions for City Search
 - **Given:** Main page is open.
 - **When:** User starts typing in the city textbox.
-- **Then:** User should receive a list of cities that match what they typed.
+- **Then:** User should receive a list of cities (suggestions) that match what they typed.
 
 #### Scenario 3: Select a City from Suggestions
 - **Given:** User was typing “Berlin” in the city textbox, and the list of suggested cities is showing.
