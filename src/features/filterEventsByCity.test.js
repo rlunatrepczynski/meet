@@ -1,13 +1,14 @@
 import { loadFeature, defineFeature } from 'jest-cucumber';
-import { render, waitFor, within } from '@testing-library/react';
+import { render, within, waitFor } from '@testing-library/react';
 import App from '../App';
+import { getEvents } from '../mock-data';
+
 
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
 defineFeature(feature, test => {
     test('Show Upcoming Events from All Cities', ({ given, when, then }) => {
         given('the user has not searched for any city.', () => {
-
         });
 
         let AppComponent;
