@@ -11,5 +11,7 @@ Feature: Filter Events by City
 
     Scenario: Select a City from Suggestions
         Given user was typing “Berlin” in the city textbox, and the list of suggested cities is showing.
+        And the list of suggested cities is showing.
         When the user selects a city (e.g., “Berlin, Germany”) from the list.
         Then their city should be changed to that city (i.e., “Berlin, Germany”), and the user should receive a list of upcoming events in that city.
+        And the user should receive a list of upcoming events in that city.
