@@ -7,7 +7,7 @@ Feature: Filter Events by City
     Scenario: Display List of Suggestions for City Search
         Given main page is open.
         When user starts typing in the city textbox.
-        Then user should receive a list of cities that match what they typed.
+        Then user should receive a list of cities (suggestions) that match what they typed.
 
     Scenario: Select a City from Suggestions
         Given user was typing “Berlin” in the city textbox, and the list of suggested cities is showing.
