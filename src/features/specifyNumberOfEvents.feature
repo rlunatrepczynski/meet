@@ -7,5 +7,4 @@ Feature: Specify Number of Events
     Scenario: Change the Number of Events Displayed
         Given user has specified the number of events.
         When the user views the events section.
-        Then the user will see 32 events shown by default.
-
+        Then the app displays the specific number of events the user requested.
