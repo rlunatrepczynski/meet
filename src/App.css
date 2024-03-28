@@ -6,8 +6,8 @@ body {
 
 .App {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -20,7 +20,7 @@ li {
   color: red;
 }
 
-.details-button:hover {
+.details-btn:hover {
   background-color: green;
 }
 
