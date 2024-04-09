@@ -20,13 +20,16 @@ const NumberOfEvents = ({ setNumberOfEvents, setErrorAlert }) => {
 
     return (
         <div id="number-of-events">
+            <label htmlFor="eventNumber">Number of Events:</label>
             <input
                 type="text"
+                id="eventNumber"
                 value={eventNumber}
                 onChange={handleInputChanged}
             />
         </div>
     );
+
 };
 
 export default NumberOfEvents;
