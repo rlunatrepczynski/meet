@@ -4,6 +4,23 @@ body {
   color: #282c34;
 }
 
+h1 {
+  text-align: center;
+}
+
+.City {
+  text-align: center;
+}
+
+#city-search {
+  text-align: center;
+}
+
+#number-of-events {
+  text-align: center;
+}
+
+
 .App {
   display: flex;
   flex-direction: column;
@@ -26,6 +43,10 @@ body {
 
 li {
   color: red;
+}
+
+.details-btn {
+  text-align: center;
 }
 
 .details-btn:hover {
