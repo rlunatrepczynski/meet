@@ -28,24 +28,15 @@ const EventGenresChart = ({ events }) => {
 
     const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent, index }) => {
         const RADIAN = Math.PI / 180;
-        const radius = outerRadius * 0.8; // Adjust label distance from pie
-        const x = cx + radius * Math.cos(-midAngle * RADIAN);
-        const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-        // Calculate width of text based on its length
-        const labelWidth = genres[index].length * 8; // Adjust font size if necessary
-
-        // Conditionally adjust text anchor and x position
-        const isRightHalf = midAngle > 90 && midAngle < 270;
-        const textAnchor = isRightHalf ? 'end' : 'start';
-        const labelX = isRightHalf ? x - labelWidth : x;
-
+        const radius = outerRadius;
+        const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07;
+        const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.07;
         return percent ? (
             <text
-                x={labelX}
+                x={x}
                 y={y}
                 fill="#000000"
-                textAnchor={textAnchor}
+                textAnchor={x > cx ? 'start' : 'end'}
                 dominantBaseline="central"
             >
                 {`${genres[index]} ${(percent * 100).toFixed(0)}%`}
