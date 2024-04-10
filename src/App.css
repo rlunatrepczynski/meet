@@ -76,6 +76,14 @@ li {
   background-color: green;
 }
 
+h4 {
+  color: black;
+}
+
+p {
+  color: black;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
