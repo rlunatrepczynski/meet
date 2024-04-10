@@ -24,6 +24,10 @@ h1 {
   text-align: center;
 }
 
+.event {
+  text-align: center;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -60,6 +64,9 @@ li {
   list-style-type: none;
 }
 
+#event-list li {
+  list-style-type: none;
+}
 
 .details-btn {
   text-align: center;
