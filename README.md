@@ -7,7 +7,7 @@ A serverless, progressive web application (PWA) with REACT using a test-driven d
 The application utilizes the Google Calendar API to fetch upcoming events.
 
 ## Screenshot of project
-img/Meet App Screenshot.png
+![Screenshot-of-Meet-App](/img/Meet%20App%20Screenshot.png)
 
 ## Tasks in the project
 - Write user stories based on the app's key features and take the user stories and translate into multiple testing scenarios
