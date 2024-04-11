@@ -6,7 +6,37 @@ A serverless, progressive web application (PWA) with REACT using a test-driven d
 ## API Project
 The application utilizes the Google Calendar API to fetch upcoming events.
 
-## Key Features
+## Screenshot of project
+img/Meet App Screenshot.png
+
+## Tasks in the project
+- Write user stories based on the app's key features and take the user stories and translate into multiple testing scenarios
+- Use OAuth to prepare an Oauth Client for authorization and authentication
+- Use the Google Calendar API to connect a React app with a protected API
+- Write Lamba functions to implement serverless technology in the app. Create a serverless deployment package and test Lamba functions
+- Type of Testing:
+ - Unit Testing and Integration Testing using Jest
+ - Acceptance Testing using Cucumber
+ - End-to-End Testing using Puppeteer
+ - Data Visualization using Recharts
+
+ ## Link to the App
+
+ A link to the live version of the app: [https://rlunatrepczynski.github.io/meet/] (https://rlunatrepczynski.github.io/meet/)
+
+ ## Development mode
+
+ use `npm run start` to run the app in development mode. Navigate to "http://localhost:3000/meet". The application will automatically reload in case there are any changes to the source files.
+
+ ## Build
+
+ Use the following command in the terminal:
+
+ `npm run build`
+
+ This will build the app for production to the build folder.
+
+## User Stores and Features
 
 ### Filter Events by City
 As a user, I should be able to filter events by city so that I can see only the events in that city.
@@ -89,3 +119,24 @@ As a user, I should be able to see charts visualizing event details so that I ca
 ### Serverless Functions
 Serverless functions will play a role in handling authorization for accessing public calendar events from the Google Calendar API in the Meet app. Users will need to have authorization to retrieve event data for rendering in the React app. The authorization is through the serverless function which the serverless fucntion will generate and provide access tokens that ensures secure access to the Google Calendar API. AWS Lambda will be used as the cloud-service provider for implementing serverless functions and making the serverless architecture cost less and more scalable.
 
+### References
+
+1. Product: AWS
+   Description: AWS is an online platform that provides on-demand cloud computing platforms and APIs on a metered, pay-as-you-go basis. AWS helps with scalability and reduction of costs.
+   [https://aws.amazon.com/](https://aws.amazon.com/)
+
+2. Product: Jest
+   Description: Jest is a JavaScript testing framework that allows you to write tests with an appproachable, familiar, and feature-rich API that gives you results quickly.
+   [https://jestjs.io/](https://jestjs.io/)
+
+3. Product: Cucumber
+   Description: Cucumber is a software tool that supports behavior-driven development(BDD). It allowes expected software behaviors to be specified in a logical language that customers can understand.
+   [https://cucumber.io/](https://cucumber.io/)
+
+4. Product: Puppeteer
+   Description: Puppeteer is a Node.js library which provides a high level API to control Chome over the DevTools Protocol. Puppeteer runs in headless mode by default, but can be configured to fun in full Chome.
+   [https://pptr.dev/](https://pptr.dev/)
+
+5. Product: Recharts
+   Description: Recharts is a composable charting library built on React components. Recharts is used for data visualization.
+   [https://recharts.org/en-US/](https://recharts.org/en-US/)
